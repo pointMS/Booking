@@ -20,9 +20,23 @@ public class Main {
                 new Person("Pier"),
                 new DateInterval(new Date(30, 12, 2020), new Date(4, 1, 2021)));
 
-        System.out.println(b1);
-        System.out.println(b2);
-        System.out.println(b3);
+        Booking b4 = new Booking(
+                new DeLuxeRoom("12", 2),
+                new Person("Alex"),
+                new DateInterval(new Date(30, 12, 2020), new Date(4, 1, 2021)));
+
+        BookingList bookingList = new ArrayBookingList(2);
+        bookingList.add(b1);
+        bookingList.add(b2);
+        bookingList.add(b3);
+        bookingList.add(b4);
+
+        bookingList.print();
+
+        bookingList.getBookingByIndex(1);
+        bookingList.findBooking(b1);
+
+
 
     }
 }

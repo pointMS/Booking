@@ -5,6 +5,7 @@ public class Booking {
     private Person person;
     private DateInterval dateInterval;
 
+
     public Booking(Room room, Person person, DateInterval dateInterval) {
         this.room = room;
         this.person = person;
