@@ -1,5 +1,8 @@
 package booking;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 /**
  * Booking 04.08.2020
  */
@@ -9,7 +12,7 @@ public class ArrayBookingList implements BookingList {
     private int capacity = 3; //размер массива на данный момент
     private int index;
 
-        public ArrayBookingList(int capacity) {
+    public ArrayBookingList(int capacity) {
         this.capacity = capacity;
         bookings = new Booking[this.capacity];
     }
@@ -20,9 +23,9 @@ public class ArrayBookingList implements BookingList {
             bookings[size++] = booking;
         } else {
             capacity *= 2; //увеличение размера массива, если в нем уже накопилось минимальное количество
-            Booking [] temp = new Booking[capacity]; //создание нового массива размера *2
-            for (int i = 0; i < bookings.length; i++){ //переброска в него элементов из старого массива
-                temp[i] = bookings [i];
+            Booking[] temp = new Booking[capacity]; //создание нового массива размера *2
+            for (int i = 0; i < bookings.length; i++) { //переброска в него элементов из старого массива
+                temp[i] = bookings[i];
             }
             bookings = temp;
             bookings[size++] = booking;
@@ -42,14 +45,9 @@ public class ArrayBookingList implements BookingList {
     }
 
     @Override
-    public Booking getBookingByIndex(int index) {
-        return null;
+    public Booking[] getSortedArray(Comparator<Booking> comparator) {
+        Arrays.sort(bookings, comparator);
+        return bookings;
     }
-
-    @Override
-    public Booking findBooking(Booking booking) {
-        return null;
-    }
-
 
 }

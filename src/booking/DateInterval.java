@@ -1,12 +1,12 @@
 package booking;
 
 public class DateInterval {
-    private Date start;
-    private Date finish;
+    private myDate start;
+    private myDate finish;
     //private static  Random rnd = new Random(System.currentTimeMillis());
     private int days = 0;
 
-    public DateInterval(Date start, Date finish) {
+    public DateInterval(myDate start, myDate finish) {
         if (start.compareTo(finish) > 0) {
             this.start = finish;
             this.finish = start;
@@ -18,15 +18,15 @@ public class DateInterval {
 
     public static boolean isIntersect(DateInterval interval1, DateInterval interval2) {
         // при выполнении этого условия интервалы НЕ пересекаются - !
-        return !(interval1.getStart().compareTo(interval2.getFinish()) > 0) ||
-                (interval2.getStart().compareTo(interval1.getFinish()) > 0);
+        return !((interval1.getStart().compareTo(interval2.getFinish()) > 0) ||
+                (interval2.getStart().compareTo(interval1.getFinish()) > 0));
     }
 
-    public Date getStart() {
+    public myDate getStart() {
         return start;
     }
 
-    public Date getFinish() {
+    public myDate getFinish() {
         return finish;
     }
 
@@ -41,7 +41,7 @@ public class DateInterval {
 */
         if (days == 0) {
             for (int i = start.getYear(); i < finish.getYear(); i++) {
-                days += Date.getDaysPerYear(i);
+                days += myDate.getDaysPerYear(i);
             }
             days -= start.daysFromNewYear();
             days += finish.daysFromNewYear();

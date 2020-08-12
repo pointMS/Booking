@@ -1,11 +1,11 @@
 package booking;
 
-public class Date implements Comparable<Date> {
+public class myDate implements Comparable<myDate> {
     private int day;
     private int month;
     private int year;
 
-    public Date(int day, int month, int year) {
+    public myDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
@@ -79,7 +79,7 @@ public class Date implements Comparable<Date> {
     }
 
     @Override
-    public int compareTo(Date date) {
+    public int compareTo(myDate date) {
         int checkYears = this.year - date.year;
         int checkMonth = this.month - date.month;
         int checkDays = this.day - date.day;

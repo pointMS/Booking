@@ -10,8 +10,8 @@ public class DateIntervalTest {
     @Test
     public void dateFinishShouldBeAfterStart1() {
         //если даты введены в обратном порядке
-        Date d1 = new Date(30, 8, 2020);
-        Date d2 = new Date(10, 8, 2020);
+        myDate d1 = new myDate(30, 8, 2020);
+        myDate d2 = new myDate(10, 8, 2020);
 
         DateInterval dateInterval = new DateInterval(d1, d2);
         boolean res = dateInterval.getStart().equals(d2) &&
@@ -23,8 +23,8 @@ public class DateIntervalTest {
     @Test
     public void dateFinishShouldBeAfterStart2() {
         //если даты введены правильно
-        Date d2 = new Date(30, 8, 2020);
-        Date d1 = new Date(10, 8, 2020);
+        myDate d2 = new myDate(30, 8, 2020);
+        myDate d1 = new myDate(10, 8, 2020);
 
         DateInterval dateInterval = new DateInterval(d1, d2);
         boolean res = dateInterval.getStart().equals(d1) &&
@@ -36,12 +36,12 @@ public class DateIntervalTest {
     @Test
     public void isIntersectTrueTest1() {
         //проверка пересечения интервалов, прямой порядок
-        Date start1 = new Date(10, 8, 2020);
-        Date finish1 = new Date(30, 8, 2020);
+        myDate start1 = new myDate(10, 8, 2020);
+        myDate finish1 = new myDate(30, 8, 2020);
         DateInterval dateInterval1 = new DateInterval(start1, finish1);
 
-        Date start2 = new Date(15, 8, 2020);
-        Date finish2 = new Date(15, 9, 2020);
+        myDate start2 = new myDate(15, 8, 2020);
+        myDate finish2 = new myDate(15, 9, 2020);
         DateInterval dateInterval2 = new DateInterval(start2, finish2);
 
         //при вызове этого метода с этими параметрами ожидаем результат true
@@ -51,12 +51,12 @@ public class DateIntervalTest {
     @Test
     public void isIntersectTrueTest2() {
         //проверка - есть пересечение интервалов, интервалы записаны в обратном порядке
-        Date start1 = new Date(10, 8, 2020);
-        Date finish1 = new Date(30, 8, 2020);
+        myDate start1 = new myDate(10, 8, 2020);
+        myDate finish1 = new myDate(30, 8, 2020);
         DateInterval dateInterval1 = new DateInterval(start1, finish1);
 
-        Date start2 = new Date(15, 8, 2020);
-        Date finish2 = new Date(15, 9, 2020);
+        myDate start2 = new myDate(15, 8, 2020);
+        myDate finish2 = new myDate(15, 9, 2020);
         DateInterval dateInterval2 = new DateInterval(start2, finish2);
 
         //при вызове этого метода с этими параметрами ожидаем результат true
@@ -66,12 +66,12 @@ public class DateIntervalTest {
     @Test
     public void isIntersectFalseTest1() {
         //проверка  - нет пересечения интервалов, прямая последовательность записи
-        Date start1 = new Date(10, 8, 2020);
-        Date finish1 = new Date(20, 8, 2020);
+        myDate start1 = new myDate(10, 8, 2020);
+        myDate finish1 = new myDate(20, 8, 2020);
         DateInterval dateInterval1 = new DateInterval(start1, finish1);
 
-        Date start2 = new Date(15, 9, 2020);
-        Date finish2 = new Date(20, 9, 2020);
+        myDate start2 = new myDate(15, 9, 2020);
+        myDate finish2 = new myDate(20, 9, 2020);
         DateInterval dateInterval2 = new DateInterval(start2, finish2);
 
         //при вызове этого метода с этими параметрами ожидаем результат false
@@ -81,12 +81,12 @@ public class DateIntervalTest {
     @Test
     public void isIntersectFalseTest2() {
         //проверка - нет пересечения интервалов, обратная последовательность записи
-        Date start1 = new Date(10, 8, 2020);
-        Date finish1 = new Date(20, 8, 2020);
+        myDate start1 = new myDate(10, 8, 2020);
+        myDate finish1 = new myDate(20, 8, 2020);
         DateInterval dateInterval1 = new DateInterval(start1, finish1);
 
-        Date start2 = new Date(15, 9, 2020);
-        Date finish2 = new Date(20, 9, 2020);
+        myDate start2 = new myDate(15, 9, 2020);
+        myDate finish2 = new myDate(20, 9, 2020);
         DateInterval dateInterval2 = new DateInterval(start2, finish2);
 
         //при вызове этого метода с этими параметрами ожидаем результат false
