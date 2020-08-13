@@ -1,8 +1,8 @@
 package booking;
 
 public class Booking {
-    static private int nextId = 0; //общее поле на все объекты класса, счетчик
-    private int id;
+    static private int nextId = 0; //static - общее поле на все объекты класса, одинаковое значение
+    private int id; //поле для каждого объекта класса
     private Room room;
     private Person person;
     private DateInterval dateInterval;
@@ -13,7 +13,7 @@ public class Booking {
         this.person = person;
         this.dateInterval = dateInterval;
 
-        this.id = ++nextId; //каждый раз, когда вызывается объект Booking, увеличивается значение этого поля
+        this.id = ++nextId; //счетчик - каждый раз, когда вызывается объект Booking, увеличивается значение этого поля
     }
 
     public Room getRoom() {

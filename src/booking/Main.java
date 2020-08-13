@@ -1,5 +1,7 @@
 package booking;
 
+import java.util.Arrays;
+
 /**
  * JavaAdvanced 30.07.2020
  */
@@ -33,10 +35,19 @@ public class Main {
 
         bookingList.print();
 
+        System.out.println("- - - 1 - - - - ");
+
+        Booking[] bookings = bookingList.getSortedArray(new BookingComparatorByName());
+        bookingList.print();
+
+        System.out.println("- - - 2 - comparator by name - - - ");
+
+        bookingList.print();
+        System.out.println("- - - 3 - booking list array - - - ");
+        System.out.println(Arrays.toString(bookings));
+
 //        bookingList.getBookingByIndex(1);
 //        bookingList.findBooking(b1);
-
-
 
     }
 }

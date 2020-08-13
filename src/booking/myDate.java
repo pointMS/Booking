@@ -33,7 +33,7 @@ public class myDate implements Comparable<myDate> {
     }
 
     public boolean isLeapYear() {
-        return isLeapYear(this.year);
+        return isLeapYear(this.year); //метод для отображения текущего состояния класса, использует статический метод
     }
 
     private static boolean checkMonth(int month) {

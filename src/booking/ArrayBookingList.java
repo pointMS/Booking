@@ -3,14 +3,10 @@ package booking;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * Booking 04.08.2020
- */
-public class ArrayBookingList implements BookingList {
+public class ArrayBookingList implements BookingList { //класс хранит и управляет множеством букингов
     private Booking[] bookings;
     private int size = 0; //количество элементов, которое есть сейчас в массиве
     private int capacity = 3; //размер массива на данный момент
-    private int index;
 
     public ArrayBookingList(int capacity) {
         this.capacity = capacity;
@@ -46,8 +42,9 @@ public class ArrayBookingList implements BookingList {
 
     @Override
     public Booking[] getSortedArray(Comparator<Booking> comparator) {
+        Booking[] res = Arrays.copyOf(bookings, bookings.length); //создана копия массива
         Arrays.sort(bookings, comparator);
-        return bookings;
+        return res;
     }
 
 }
