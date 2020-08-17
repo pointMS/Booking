@@ -6,9 +6,6 @@ import org.junit.Test;
 
 import java.util.Comparator;
 
-/**
- * Booking 11.08.2020
- */
 public class ArrayBookingListTest {
     BookingList bookingList;
     Booking b1;
@@ -34,6 +31,57 @@ public class ArrayBookingListTest {
     }
 
     @Test
+    public void remove_DecrementBookingList() {
+        Booking[] resList = bookingList.remove(b1);
+        Booking[] expectedList = {b2, b3};
+
+        bookingList.remove(b1);
+        Assert.assertArrayEquals(resList, expectedList); //сравнение ожидаемого и результирующего массивов
+        //Assert.assertEquals(2,bookingList.size());
+        Assert.assertTrue(bookingList.findIndexToRemove(b1) == -1); //находится ли удаленный индекс в новом массиве
+
+
+    }
+
+    @Test
+    public void getByIndex_Correct_ReturnBooking() {
+        Assert.assertEquals("the first element fail", b1, bookingList.getByIndex(0));
+        Assert.assertEquals("get element fail", b2, bookingList.getByIndex(1));
+        Assert.assertEquals("the last element fail", b3, bookingList.getByIndex(2));
+    }
+
+    @Test
+    public void getByIndex_NotCorrectIndex_ReturnNull() {
+        Assert.assertTrue("negative index not ok", bookingList.getByIndex(-1) == null);
+        Assert.assertTrue("bigger index not ok", bookingList.getByIndex(3) == null);
+    }
+
+    @Test
+    public void add_CorrectSize_IncrementAndBookingAdd() {
+        Booking booking = new Booking(new DeLuxeRoom("4", 2), new Person("Nick222"),
+                new DateInterval(new myDate(15, 8, 2020), new myDate(4, 1, 2021)));
+        //создаем новый букинг, добавляем и проверяем изменился ли размер массива, было 3, ожидаем 4
+        bookingList.add(booking);
+        Assert.assertEquals(4, bookingList.size());//проверяем размер массива
+        Assert.assertEquals(booking, bookingList.getByIndex(3)); //проверяем, есть ли элемент с нужным индексом
+    }
+
+    @Test
+    //название метода_начальное условие_что ожидаем
+    public void add_emptyBookingList_correctAdded() { //проверяем, увеличивается ли List
+        BookingList bookingList = new ArrayBookingList(1); // создаем массив размером 1
+
+        bookingList.add(b1); //добавляем в него один элемент
+        Assert.assertEquals(1, bookingList.size()); //проверяем размер массива
+        bookingList.add(b2); //добавляем еще один элемент и повторяем проверку
+        Assert.assertEquals(2, bookingList.size());
+
+        //проверяем, есть ли элемент с нужным индексом после роста массива
+        Assert.assertEquals(b1, bookingList.getByIndex(0));
+        Assert.assertEquals(b2, bookingList.getByIndex(1));
+    }
+
+    @Test
     public void getSortedByNameArrayTest() {
         Comparator<Booking> comparator = new BookingComparatorByName();
         Booking[] resArray = bookingList.getSortedArray(comparator);
@@ -48,6 +96,6 @@ public class ArrayBookingListTest {
         Booking[] resArray = bookingList.getSortedArray(comparator);
         Booking[] shouldBeArray = {b2, b1, b3}; //expected sorting
 
-        Assert.assertArrayEquals(shouldBeArray,resArray);
+        Assert.assertArrayEquals(shouldBeArray, resArray);
     }
 }

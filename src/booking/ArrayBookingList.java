@@ -47,4 +47,38 @@ public class ArrayBookingList implements BookingList { //класс хранит
         return res;
     }
 
+    @Override
+    public Booking getByIndex(int i) { //для метода add, remove - получить запись по индексу
+        if (i < 0 || i > size - 1) {
+            return null;
+        } else {
+            return bookings[i];
+        }
+    }
+
+    @Override
+    public int findIndexToRemove(Booking booking) {
+        for (int i = 0; i < bookings.length; i++) {
+            if (booking.getPerson().equals(bookings[i].getPerson())
+                    && booking.getDateInterval().equals(bookings[i].getDateInterval())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public Booking[] remove(Booking booking) {
+        Booking[] bookingRes = new Booking[bookings.length - 1];
+        int index = findIndexToRemove(booking);
+        if (index >= 0 && index < bookings.length) {
+            for (int i = 0, j = 0; i < bookings.length; i++) {
+                if (i != index) {
+                    bookingRes[j++] = bookings[i];
+                }
+            }
+            bookings = bookingRes;
+        }
+        return bookingRes;
+    }
 }
