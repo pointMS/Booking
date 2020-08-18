@@ -32,13 +32,15 @@ public class ArrayBookingListTest {
 
     @Test
     public void remove_DecrementBookingList() {
-        Booking[] resList = bookingList.remove(b1);
-        Booking[] expectedList = {b2, b3};
-
+        //Booking[] expectedList = new Booking[2];
+        bookingList = new ArrayBookingList(3);
+        bookingList.add(b1);
+        bookingList.add(b2);
+        bookingList.add(b3);
         bookingList.remove(b1);
-        Assert.assertArrayEquals(resList, expectedList); //сравнение ожидаемого и результирующего массивов
-        //Assert.assertEquals(2,bookingList.size());
-        Assert.assertTrue(bookingList.findIndexToRemove(b1) == -1); //находится ли удаленный индекс в новом массиве
+
+        Assert.assertEquals(2, bookingList.size());
+        Assert.assertTrue(bookingList.findIndex(b1) == -1); //находится ли удаленный индекс в новом массиве
 
 
     }

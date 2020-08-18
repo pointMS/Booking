@@ -1,5 +1,7 @@
 package booking;
 
+import java.util.Objects;
+
 public class Booking {
     static private int nextId = 0; //static - общее поле на все объекты класса, одинаковое значение
     private int id; //поле для каждого объекта класса
@@ -36,5 +38,18 @@ public class Booking {
     public String toString() {
         return id + " | Booking: " + room + " person: " + person + " " + dateInterval +
                 " \n\tprice for " + this.dateInterval.getDays() + " days is " + getPrice() + " EUR";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return person.equals(booking.person) && dateInterval.equals(booking.dateInterval);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(person, dateInterval);
     }
 }
