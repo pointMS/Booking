@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class ArrayBookingList implements BookingList { //класс хранит и управляет множеством букингов
     private Booking[] bookings;
-    private int size = 0; //количество элементов, которое есть сейчас в массиве
+    private int size = 0; //текущая занятость массива, напр., 20 из 100
     private int capacity = 3; //размер массива на данный момент
 
     public ArrayBookingList(int capacity) {
@@ -16,7 +16,7 @@ public class ArrayBookingList implements BookingList { //класс хранит
     @Override
     public void add(Booking booking) {
         if (size < capacity) {
-            bookings[size++] = booking;
+            bookings[size++] = booking; //обращение к элементу массива с индексом size, потом мы этот элемент увеличиваем
         } else {
             capacity *= 2; //увеличение размера массива, если в нем уже накопилось минимальное количество
             Booking[] temp = new Booking[capacity]; //создание нового массива размера *2

@@ -1,5 +1,7 @@
 package booking;
 
+import java.util.Objects;
+
 public class myDate implements Comparable<myDate> {
     private int day;
     private int month;
@@ -93,5 +95,20 @@ public class myDate implements Comparable<myDate> {
                 return checkDays;
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        myDate myDate = (myDate) o;
+        return day == myDate.day &&
+                month == myDate.month &&
+                year == myDate.year;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(day, month, year);
     }
 }

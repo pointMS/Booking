@@ -1,5 +1,7 @@
 package booking;
 
+import java.util.Objects;
+
 public class DateInterval {
     private myDate start;
     private myDate finish;
@@ -52,5 +54,18 @@ public class DateInterval {
     @Override
     public String toString() {
         return " [check in: " + start + "; check out: " + finish + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DateInterval that = (DateInterval) o;
+        return days == that.days && start.equals(that.start) && finish.equals(that.finish);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, finish, days);
     }
 }
