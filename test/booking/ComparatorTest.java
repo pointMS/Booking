@@ -1,5 +1,7 @@
 package booking;
 
+import booking.rooms.StandardRoom;
+import booking.rooms.SuiteRoom;
 import org.junit.Assert;
 import org.junit.Test;
 

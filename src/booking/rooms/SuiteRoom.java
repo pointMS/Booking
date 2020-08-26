@@ -1,9 +1,9 @@
-package booking;
+package booking.rooms;
 
 /**
  * JavaAdvanced 31.07.2020
  */
-public class SuiteRoom extends Room{
+public class SuiteRoom extends Room {
     private final double priceFactor = 1.5;
 
     public SuiteRoom(String number, int capacity) {

@@ -53,7 +53,7 @@ public class DateInterval {
 
     @Override
     public String toString() {
-        return " [check in: " + start + "; check out: " + finish + "]";
+        return " [check-in: " + start + "; check-out: " + finish + "]";
     }
 
     @Override

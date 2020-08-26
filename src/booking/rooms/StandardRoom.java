@@ -1,4 +1,4 @@
-package booking;
+package booking.rooms;
 
 /**
  * JavaAdvanced 31.07.2020

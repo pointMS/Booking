@@ -17,8 +17,4 @@ public interface BookingList {
 
     void remove(Booking booking);
 
-
-
-//    Booking getBookingByIndex(int index);
-//    Booking findBooking (Booking booking);
 }

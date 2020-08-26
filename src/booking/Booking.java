@@ -1,5 +1,7 @@
 package booking;
 
+import booking.rooms.Room;
+
 import java.util.Objects;
 
 public class Booking {
@@ -36,8 +38,8 @@ public class Booking {
 
     @Override
     public String toString() {
-        return id + " | Booking: " + room + " person: " + person + " " + dateInterval +
-                " \n\tprice for " + this.dateInterval.getDays() + " days is " + getPrice() + " EUR";
+        return "\n" + id + " - Booking: " + room + ", person: " + person + "," + dateInterval +
+                ", price for " + this.dateInterval.getDays() + " days is " + getPrice() + " EUR";
     }
 
     @Override

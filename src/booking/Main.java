@@ -1,6 +1,12 @@
 package booking;
 
+import booking.rooms.DeLuxeRoom;
+import booking.rooms.StandardRoom;
+import booking.rooms.SuiteRoom;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * JavaAdvanced 30.07.2020
@@ -27,27 +33,50 @@ public class Main {
                 new Person("Alex"),
                 new DateInterval(new myDate(30, 12, 2020), new myDate(4, 1, 2021)));
 
-        BookingList bookingList = new ArrayBookingList(2);
-        bookingList.add(b1);
-        bookingList.add(b2);
-        bookingList.add(b3);
-        bookingList.add(b4);
+//        BookingList bookingList = new ArrayBookingList(2);
+//        bookingList.add(b1);
+//        bookingList.add(b2);
+//        bookingList.add(b3);
+//        bookingList.add(b4);
+//
+//        bookingList.print();
+//
+//        System.out.println("- - - 1 - - - - ");
+//
+//        Booking[] bookings = bookingList.getSortedArray(new BookingComparatorByName());
+//        bookingList.print();
+//
+//        System.out.println("- - - 2 - comparator by name - - - ");
+//
+//        bookingList.print();
+//        System.out.println("- - - 3 - booking list array - - - ");
+//        System.out.println(Arrays.toString(bookings));
 
-        bookingList.print();
+        BookingList bookings = new ArrayBookingListCollection();
+        bookings.add(b1);
+        bookings.add(b2);
+        bookings.add(b3);
+        bookings.add(b4);
 
-        System.out.println("- - - 1 - - - - ");
+        System.out.println("-- Original --");
+        bookings.print();
 
-        Booking[] bookings = bookingList.getSortedArray(new BookingComparatorByName());
-        bookingList.print();
+        System.out.println("Index of b3: " + bookings.findIndex(b3));
 
-        System.out.println("- - - 2 - comparator by name - - - ");
+        System.out.println("-- Index 1 removed --");
+        bookings.remove(b1);
+        bookings.print();
 
-        bookingList.print();
-        System.out.println("- - - 3 - booking list array - - - ");
-        System.out.println(Arrays.toString(bookings));
+        System.out.println("-- Sorted by name --");
+        bookings.add(b1);
+        bookings.getSortedArray(new BookingComparatorByName());
+        bookings.print();
 
-//        bookingList.getBookingByIndex(1);
-//        bookingList.findBooking(b1);
+        System.out.println("--Sorted by start date --");
+        bookings.getSortedArray(new BookingComparatorByStartDate());
+        bookings.print();
+
+        System.out.println("Original size is: " + bookings.size());
 
     }
 }

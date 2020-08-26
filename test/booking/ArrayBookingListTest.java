@@ -1,5 +1,8 @@
 package booking;
 
+import booking.rooms.DeLuxeRoom;
+import booking.rooms.StandardRoom;
+import booking.rooms.SuiteRoom;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
